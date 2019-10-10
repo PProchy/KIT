@@ -1,0 +1,42 @@
+{block content}
+
+<div class="container mx-1">
+
+    <p>
+        <a n:href="Post:edit $post->id" n:if="$user->loggedIn">Upravit příspěvek</a></p>
+
+
+    <h1>Zobrazení článku:{$post->title}</h1>
+
+    <div class="">
+
+        <h1 n:block="title">{$post->title}</h1>
+
+        <p>{$post->content}</p>
+
+        <date>{$post->created_at}</date>
+
+    </div>
+
+    <h2>Vložte nový příspěvek</h2>
+
+    {control commentForm}
+
+
+    <h2>Komentáře:</h2>
+
+    <div class="comment">
+        {foreach $comments as $comment}
+            <p><b><a href="mailto:{$comment->email}" n:tag-if="$comment->email">{$comment->name}</a></b> napsal:</p>
+            <div>{$comment->content}</div>
+
+        {/foreach}
+
+    </div>
+
+</div>
+
+
+
+
+
