@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+
 
 namespace App\Model;
 
@@ -15,6 +15,7 @@ class ArticleManager
 
     public function __construct(Nette\Database\Context $database)
     {
+
         $this->database = $database;
     }
 

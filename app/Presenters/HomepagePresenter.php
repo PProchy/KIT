@@ -5,15 +5,17 @@ declare(strict_types=1);
 namespace App\Presenters;
 
 use Nette;
+use App\Model\ArticleManager;
 
 
-final class HomepagePresenter extends Nette\Application\UI\Presenter
+class HomepagePresenter extends Nette\Application\UI\Presenter
 {
-    /** @var ArticleManager @inject */
-    private $articleManager;
+    /** @var ArticleManager */
+    public $articleManager;
 
-    public function __construct(ArticleManager $articleManager)
+    public function injectDb(ArticleManager $articleManager)
     {
+
         $this->articleManager = $articleManager;
     }
 
